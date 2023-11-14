@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Change this to "postgresql" when you want to use PostgreSQL
+  url      = env("DATABASE_URL")
+}
+
+// photo model
+model Entry {
+  id       String   @id @default(cuid())
+  entryDay DateTime // the day that the entry is assigned to
+
+  urlFrontPhotoThumbnail String
+  urlFrontPhotoHD        String
+
+  urlBackPhotoThumbnail String
+  urlBackPhotoHD        String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+  name   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// user model
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  userName     String       @default("No Name") 
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  entries      Entry[]
+  lessonPacks  LessonPack[] @relation(name: "LessonPackUsers")
+  phrasebooksPacks  PhrasebookPack[] @relation(name: "PhrasebookPackUsers")
+  payments     Payment[]
+}
+
+
+
+// Lesson Pack model
+model LessonPack {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  sku_number     String?     @unique
+  users    User[]     @relation(name: "LessonPackUsers")
+  lessons  LessonPackLessons[]
+}
+
+// Lesson model
+model Lesson {
+  id           Int          @id @default(autoincrement())
+  name         String
+  content      Json
+  lessonPack   LessonPackLessons[]
+}
+
+model LessonPackLessons {
+  id           Int          @id @default(autoincrement())
+  lessonId     Int
+  lesson       Lesson       @relation(fields: [lessonId], references: [id])
+  lessonPackId  Int
+  lessonPack   LessonPack   @relation(fields: [lessonPackId], references: [id])
+  @@unique([lessonId, lessonPackId])
+}
+
+// Phrasebook Pack model
+model PhrasebookPack {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  sku_number      String?     @unique
+  users    User[]     @relation(name: "PhrasebookPackUsers")
+  phrasebook  PhrasebookPackPhrasebook[]
+}
+
+// Phrasebook model
+model Phrasebook {
+  id           Int          @id @default(autoincrement())
+  name         String       @unique
+  content      Json
+  phrasebookPack   PhrasebookPackPhrasebook[]
+}
+
+model PhrasebookPackPhrasebook {
+  id           Int          @id @default(autoincrement())
+  phrasebookId     Int
+  phrasebook       Phrasebook       @relation(fields: [phrasebookId], references: [id])
+  phrasebookPackId  Int
+  phrasebookPack   PhrasebookPack   @relation(fields: [phrasebookPackId], references: [id])
+  @@unique([phrasebookId, phrasebookPackId])
+}
+
+// Model for store Payment detailse Binance
+model Payment {
+  id           Int          @id @default(autoincrement())
+  prepayId     String
+  merchantTradeNo     String   @unique
+  status     String?
+  code     String
+  user  User   @relation(fields: [userId], references: [id])
+  userId       String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}

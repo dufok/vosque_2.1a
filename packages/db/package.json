@@ -1,0 +1,30 @@
+{
+  "name": "@my/db",
+  "packageManager": "bun@1.0.0",
+  "version": "0.1.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prisma:generate": "bun with-env prisma generate",
+    "prisma:studio": "bun with-env prisma studio",
+    "prisma:migrate": "bun with-env prisma migrate",
+    "prisma:migrate:dev": "bun with-env prisma migrate dev",
+    "clean": "rm -rf node_modules",
+    "with-env": "dotenv -e ../../.env --",
+    "dev": "bun with-env prisma studio --port 5556",
+    "db-push": "bun with-env prisma db push",
+    "db-generate": "bun with-env prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "4.12.0-integration-rtld-deepbind.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.21",
+    "dotenv-cli": "^6.0.0",
+    "prisma": "4.12.0-integration-rtld-deepbind.3",
+    "ts-node": "^9.1.1",
+    "typescript": "4.1.3"
+  }
+}
