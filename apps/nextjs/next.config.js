@@ -21,7 +21,7 @@ Welcome to Tamagui!
 
 You can update this monorepo to the latest Tamagui release just by running:
 
-yarn upgrade:tamagui
+
 
 We've set up a few things for you.
 
@@ -82,8 +82,7 @@ module.exports = function () {
     ],
     experimental: {
       // optimizeCss: true,
-      scrollRestoration: true,
-      legacyBrowsers: false,
+      scrollRestoration: true
     },
   }
 

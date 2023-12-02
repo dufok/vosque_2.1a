@@ -1,2 +1,9 @@
 .env
 bun.lockb
+node_modules
+packages/app/node_modules
+packages/db/node_modules
+packages/api/node_modules
+apps/nextjs/.next
+
+packages/db/node_modules

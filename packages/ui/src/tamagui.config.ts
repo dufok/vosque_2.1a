@@ -1,9 +1,9 @@
 import { createTamagui, createFont } from 'tamagui'
 import { createInterFont } from '@tamagui/font-inter'
 import { shorthands } from '@tamagui/shorthands'
-import { size, tokens } from '@tamagui/theme-base'
 import { createMedia } from '@tamagui/react-native-media-driver'
 import { themes } from './mytheme'
+import { tokens } from './themes/tokens';
 
 import { animations } from './animations'
 
@@ -203,6 +203,7 @@ export const config = createTamagui({
   shouldAddPrefersColorThemes: true,
   themeClassNameOnRoot: true,
   shorthands,
+  tokens,
   fonts: {
     heading: headingVosqueFont,
     body: bodyVosqueFont,
@@ -210,7 +211,6 @@ export const config = createTamagui({
     bodyBold: bodyBoldVosqueFont,
   },
   themes,
-  tokens,
   media: createMedia({
     xs: { maxWidth: 660 },
     sm: { maxWidth: 800 },

@@ -1,8 +1,5 @@
-import { createTheme } from 'tamagui'
-import { tokens } from '@tamagui/theme-base'
 
-
-const light = createTheme({
+const light = {
 
   background: '#FFFDEF', // default background light
   backgroundHover: '#76714A9E',
@@ -32,11 +29,9 @@ const light = createTheme({
   color10: 'hsl(0, 0%, 52.3%)',
   color11: 'hsl(0, 0%, 43.5%)',
   color12: 'hsl(0, 0%, 9.0%)',
-})
-// note: we set up a single consistent base type to validate the rest:
+}
 
 type BaseTheme = typeof light
-// the rest of the themes use BaseTheme
 
 const dark: BaseTheme = {
   background: '#FFFDEF', // default background light
@@ -68,86 +63,13 @@ const dark: BaseTheme = {
   color11: 'hsl(0, 0%, 43.5%)',
   color12: 'hsl(0, 0%, 9.0%)',
 }
-// if you need to add non-token values, use createTheme
-
-const dark_translucent: BaseTheme = createTheme({
-
-  ...dark,
-
-  background: 'rgba(0,0,0,0.7)',
-  backgroundHover: 'rgba(0,0,0,0.5)',
-  backgroundPress: 'rgba(0,0,0,0.25)',
-  backgroundFocus: 'rgba(0,0,0,0.1)',
-
-})
-const light_translucent: BaseTheme = createTheme({
-
-  ...light,
-
-  background: 'rgba(255,255,255,0.85)',
-  backgroundHover: 'rgba(250,250,250,0.85)',
-  backgroundPress: 'rgba(240,240,240,0.85)',
-  backgroundFocus: 'rgba(240,240,240,0.7)',
-})
-const dark_gray: BaseTheme = createTheme({
-
-  ...dark,
-
-  background: tokens.color.gray5Dark,
-  backgroundHover: tokens.color.gray6Dark,
-  backgroundPress: tokens.color.gray7Dark,
-  backgroundFocus: tokens.color.gray8Dark,
-
-})
-const light_gray: BaseTheme = createTheme({
-
-  ...light,
-
-  background: tokens.color.gray5Light,
-  backgroundHover: tokens.color.gray6Light,
-  backgroundPress: tokens.color.gray7Light,
-  backgroundFocus: tokens.color.gray8Light,
-})
-const dark_red: BaseTheme = createTheme({
-
-  ...dark,
-
-  background: tokens.color.red5Dark,
-  backgroundHover: tokens.color.red6Dark,
-  backgroundPress: tokens.color.red7Dark,
-  backgroundFocus: tokens.color.red8Dark,
-
-})
-const light_red: BaseTheme = createTheme({
-
-  ...light,
-
-  background: tokens.color.red5Light,
-  backgroundHover: tokens.color.red6Light,
-  backgroundPress: tokens.color.red7Light,
-  backgroundFocus: tokens.color.red8Light,
-})
-
-// note the steps here
-
-// we recommend doing this because it avoids a category of confusing type errors
-// 1. to get ThemeNames/Theme, first create an object with all themes
 
 const allThemes = {
-
   dark,
-  light,
-  dark_translucent,
-  light_translucent,
-  dark_gray,
-  light_gray,
-  dark_red,
-  light_red
+  light
 }
-// 2. then get the name type
 
 type ThemeName = keyof typeof allThemes
-// 3. then, create a Themes type that explicitly maps ThemeName => BaseTheme
 
 type Themes = {
 
