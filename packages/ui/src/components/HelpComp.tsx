@@ -43,7 +43,7 @@ export function HelpComp({texts, html}) {
       >
         <Popover.Arrow borderWidth={1} borderColor="$borderColor" />
         <YStack m="$3" maw={300}>
-            <Paragraph size="$3" htmlFor={html}>
+            <Paragraph size="$3" >
               {texts}
             </Paragraph>
           <Popover.Close asChild>

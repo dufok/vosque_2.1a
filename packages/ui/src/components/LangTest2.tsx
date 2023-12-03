@@ -1,4 +1,4 @@
-import { Paragraph, YStack, XStack, Input, Square, Separator, listItemStaticConfig } from 'tamagui';
+import { Paragraph, YStack, XStack, Input, Square, Separator } from 'tamagui';
 import React, { useState, useEffect } from "react";
 import { ParagraphCustom } from "./CustomText";
 import { IceCream, Triangle } from '@tamagui/lucide-icons';
