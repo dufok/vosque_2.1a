@@ -1,4 +1,4 @@
 {
-  "buildCommand": "cd ../../packages/db && bun with-env prisma:generate && cd ../../apps/nextjs && bun with-env next build",
+  "buildCommand": "bun with-env next build",
   "installCommand": "bun install"
 }
