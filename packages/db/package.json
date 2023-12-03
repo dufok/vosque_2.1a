@@ -6,7 +6,6 @@
   "types": "./index.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
     "prisma:generate": "bun with-env prisma generate",
     "prisma:studio": "bun with-env prisma studio",
     "prisma:migrate": "bun with-env prisma migrate",
