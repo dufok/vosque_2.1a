@@ -5,5 +5,8 @@ packages/app/node_modules
 packages/db/node_modules
 packages/api/node_modules
 apps/nextjs/.next
+apps/nextjs/.tamagui
 
 packages/db/node_modules
+database
+

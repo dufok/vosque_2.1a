@@ -16,7 +16,7 @@ export function SubMenu({userpageLinkProps}) {
           <a href="https://github.com/dufok" target="_blank" rel="noopener noreferrer">
             <GithubIcon width={30} color="$background" />
           </a>
-          <a href="https://www.instagram.com/algo_rarito" target="_blank" rel="noopener noreferrer">
+          <a href="https://instagram.com/vosque.education" target="_blank" rel="noopener noreferrer">
             <InstagramIcon width={30} color="$background" />
           </a>
           <a href="https://t.me/vosque_help" target="_blank" rel="noopener noreferrer">

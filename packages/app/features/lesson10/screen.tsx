@@ -172,14 +172,14 @@ export function Lesson10SignIn({userLessons}) {
             <HeaderBlock header={content2?.headerBlock1}/>
               {isOpen2 && (
                 <>
-                  <TableBlock table={content2?.tableBlock1} />
+                 <TableBlock table={content2?.tableBlock1} />
 
                   <SquareText text={content2?.squareText3} />
                   <YStack ai="center">
                     <ExercisesBlockText exercises={exercises2} />
                   </YStack>
 
-                  <TableBlock table={content2?.tableBlock2} />
+                  {/* Not exists <TableBlock table={content2?.tableBlock2} /> */}
                   <TableBlock table={content2?.tableBlock3} />
                   <SquareText text={content2?.squareText4} />
                   <YStack ai="center">
