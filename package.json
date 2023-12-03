@@ -13,6 +13,7 @@
     },
     "scripts": {
       "dev": "cd apps/nextjs && bun with-env next dev",
+      "build": "cd apps/nextjs && bun with-env next build",
       "clean": "rm -rf node_modules",
       "upseed": "ts-node ./packages/db/seed/upseed.ts",
       "generate": "cd packages/db && bun prisma generate",
