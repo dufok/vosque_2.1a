@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "bun with-env next dev",
     "build": "bun with-env next build",
+    "prisma:generate": "cd ../../packages/db/ && bun run prisma:generate && cd ../../packages/nextjs/",
     "with-env": "dotenv -e ../../.env --",
     "clean": "rm -rf .next node_modules",
     "start": "next start",
