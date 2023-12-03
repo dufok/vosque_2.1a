@@ -14,8 +14,9 @@
     "scripts": {
       "dev": "cd apps/nextjs && bun with-env next dev",
       "clean": "rm -rf node_modules",
+      "build": "turbo build",
       "upseed": "ts-node ./packages/db/seed/upseed.ts",
-      "generate": "cd packages/db && bun prisma generate",
+      "generate": "cd packages/db && bun prisma:generate",
       "build:ui": "cd packages/ui && bun build",
       "studio": " cd packages/db && bun prisma:studio"
     },
@@ -43,6 +44,7 @@
       "lerna-update-wizard": "^1.1.2",
       "prettier": "^2.7.1",
       "ts-node": "^10.9.1",
+      "turbo": "^1.4.2",
       "typescript": "^4.9.4"
     }
   }
