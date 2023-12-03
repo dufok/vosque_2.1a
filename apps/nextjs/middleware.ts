@@ -6,6 +6,7 @@ export default authMiddleware({
   publicRoutes: [
     '/',
     '/home',
+    '/payscreen',
     '/userpage',
     '/signup',
     '/signin',

@@ -6,6 +6,7 @@ packages/db/node_modules
 packages/api/node_modules
 apps/nextjs/.next
 apps/nextjs/.tamagui
+apps/nextjs/tamagui_old
 
 packages/db/node_modules
 database
