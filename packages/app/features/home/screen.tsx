@@ -93,43 +93,96 @@ function Welcome({ imageSource, userpageLinkProps }){
 
 
 function AboutAutor({imageSource1}){
+
+  const [hoverStates, setHoverStates] = useState({ block1: false, block2: false, block3: false });
+  const handleHover = (blockKey, isHovered) => {
+    setHoverStates(prev => ({ ...prev, [blockKey]: isHovered }));
+  };
+
   return(
     <XStack flexWrap="wrap" >
 
+      {/* Block 1 */}
+
       <YStack ai="center" jc="center" w="100%" $gtSm={{ width: "50%" }} $sm={{ height: 500}} >
         <YStack p="$8" flex={0.3} ai="center" jc="center" w='100%'>
-          <Square w="100%" pos="relative" hoverStyle={{ opacity: 0 }} >
+        {/* First Square of Block 1 */}
+          <Square
+            w="100%"
+            pos="relative"
+            style={{ opacity: hoverStates.block1 ? 0 : 1 }}
+            onHoverIn={() => handleHover('block1', true)}
+            onHoverOut={() => handleHover('block1', false)}
+          >
             <H3 ta="center">
               Разговорная речь
             </H3>
           </Square>
-          <Square w='80%' pos="absolute" style={{ opacity: 0 }} hoverStyle={{ opacity: 1 }} ai="stretch" animation="bouncy">
+          <Square
+            w='80%'
+            pos="absolute"
+            ai="stretch"
+            animation="bouncy"
+            style={{ opacity: hoverStates.block1 ? 1 : 0 }}
+            onHoverIn={() => handleHover('block1', true)}
+            onHoverOut={() => handleHover('block1', false)}
+            >
             <Paragraph ta="left" bc="$background" >
               Нет смысла учить язык, если потом не можешь на нем разговаривать. Уже с первых уроков нашего курса мы будем учиться строить диалоги - и не сухие, а так, как это делают носители.
             </Paragraph>
           </Square>
         </YStack >
 
+      {/* Block 2 */}
+
         <YStack p="$8" flex={0.3} ai="center" jc="center" w='100%'>
-          <Square w="100%" pos="relative" hoverStyle={{ opacity: 0 }}>        
+          <Square w="100%"
+            pos="relative" 
+            style={{ opacity: hoverStates.block2 ? 0 : 1 }}
+            onHoverIn={() => handleHover('block2', true)}
+            onHoverOut={() => handleHover('block2', false)}
+          >        
             <H3 ta="center">
               Культурный контекст
             </H3>
           </Square>
-          <Square w='80%' pos="absolute" style={{ opacity: 0 }} hoverStyle={{ opacity: 1 }} ai="stretch" animation="bouncy">
+          <Square
+            w='80%'
+            pos="absolute"
+            ai="stretch"
+            animation="bouncy"
+            style={{ opacity: hoverStates.block2 ? 1 : 0 }}
+            onHoverIn={() => handleHover('block2', true)}
+            onHoverOut={() => handleHover('block2', false)}
+            >
             <Paragraph ta="left" bc="$background">
               Все про Аргентину и не только - постоянные исторические и культурные отсылки помогут Вам лучше понять жителей Аргентины и быстрее влиться в среду.
             </Paragraph>
           </Square>
         </YStack>
 
+      {/* Block 3 */}
+
         <YStack p="$8" flex={0.3} ai="center" jc="center" w='100%'>
-          <Square  w="100%" pos="relative" hoverStyle={{ opacity: 0 }}>
+          <Square w="100%"
+            pos="relative" 
+            style={{ opacity: hoverStates.block3 ? 0 : 1 }}
+            onHoverIn={() => handleHover('block3', true)}
+            onHoverOut={() => handleHover('block3', false)}
+          >
             <H3 ta="center">
               Структура языка
             </H3>
           </Square>
-          <Square w='80%'  pos="absolute" style={{ opacity: 0 }} hoverStyle={{ opacity: 1 }} ai="stretch" animation="bouncy">
+          <Square
+            w='80%'
+            pos="absolute"
+            ai="stretch"
+            animation="bouncy"
+            style={{ opacity: hoverStates.block3 ? 1 : 0 }}
+            onHoverIn={() => handleHover('block3', true)}
+            onHoverOut={() => handleHover('block3', false)}
+            >
             <Paragraph ta="left" bc="$background">
               Часто на курсах обещают разговорную речь, но не дают структуры. Этот метод подходит для детей, но голова взрослого человека работает иначе - весь материал будет структурирован в таблицах.
             </Paragraph>
