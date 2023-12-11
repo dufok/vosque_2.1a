@@ -13,7 +13,9 @@ export default authMiddleware({
     '/phrasebook',
     '/course',
     '/test',
-    '/api/trpc/entry.all'
+    '/api/trpc/entry.all',
+    '/email-verification',
+    '/signup/email-verification'
   ],
   debug: true,
 })
