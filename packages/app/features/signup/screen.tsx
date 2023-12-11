@@ -1,3 +1,4 @@
+import React from "react";
 import { YStack } from "@my/ui";
 import { useSignUp } from "app/utils/clerk";
 import { OAuthStrategy } from "@clerk/types";
@@ -7,13 +8,9 @@ import { SignUpSignInComponent } from "@my/ui/src/components/SignUpSignIn";
 export function SignUpScreen() {
   const { push } = useRouter();
 
-  const { isLoaded, signUp, setSession } = useSignUp();
+  const { isLoaded, signUp, setActive } = useSignUp();
 
-  if (!setSession || !isLoaded) return null;
-
-  const handleOAuthSignUpWithPress = async (strategy: OAuthStrategy) => {
-    push("/signup/sso-oauth/" + strategy);
-  };
+  if (!setActive || !isLoaded) return null;
 
   const handleEmailSignUpWithPress = async (emailAddress, password) => {
     await signUp.create({

@@ -1,4 +1,5 @@
 /* this page is just one input for email verification */
+import React from "react";
 import { useState } from "react";
 import { Button, Input, YStack, Spinner } from "@my/ui";
 import { useAuth, useSignUp } from "app/utils/clerk";
@@ -15,7 +16,7 @@ export function EmailVerificationScreen() {
   const { data: lessonPack } = trpc.user.lessonPackBySku.useQuery({ sku_number: sku });
   const updateUserLessonPack = trpc.user.updateUserLessonPack.useMutation();
   
-  const { signUp, setSession } = useSignUp();
+  const { signUp, setActive } = useSignUp();
   if (!signUp) return null;
 
   // this is for toast message
@@ -51,11 +52,7 @@ export function EmailVerificationScreen() {
       await signUp.attemptEmailAddressVerification({ code: verificationCode });
   
       if (signUp.status === "complete") {
-        const { createdSessionId } = signUp;
-        if (createdSessionId) {
-          await setSession(createdSessionId);
-        }
-  
+        
         const userId = signUp.createdUserId!;
         console.log("Received userId:", userId);
         const userEmailAddress = signUp.emailAddress!;

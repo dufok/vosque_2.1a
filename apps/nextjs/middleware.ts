@@ -17,7 +17,7 @@ export default authMiddleware({
     '/email-verification',
     '/signup/email-verification'
   ],
-  debug: true,
+  debug: false,
 })
 
 // Stop Middleware running on static files
