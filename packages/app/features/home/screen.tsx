@@ -28,7 +28,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Analytics } from '@vercel/analytics/react';
 
-import texts from './rew.json';
+const texts = require('./rew.json');
 
 export function HomeScreen() {
 

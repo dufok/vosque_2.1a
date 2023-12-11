@@ -5,6 +5,7 @@
   ],
   "compilerOptions": {
     "composite": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "jsx": "preserve"
   },
