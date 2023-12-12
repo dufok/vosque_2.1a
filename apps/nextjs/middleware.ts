@@ -1,6 +1,4 @@
 import { authMiddleware } from '@clerk/nextjs/server'
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
 
 export default authMiddleware({
   publicRoutes: [
@@ -13,11 +11,11 @@ export default authMiddleware({
     '/phrasebook',
     '/course',
     '/test',
-    '/api/trpc/entry.all',
     '/email-verification',
-    '/signup/email-verification'
+    '/signup/email-verification',
+    '/api/(.*)'
   ],
-  debug: false,
+  debug: false
 })
 
 // Stop Middleware running on static files

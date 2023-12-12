@@ -1,8 +1,7 @@
 /* this page is just one input for email verification */
-import React from "react";
-import { useState } from "react";
-import { Button, Input, YStack, Spinner } from "@my/ui";
-import { useAuth, useSignUp } from "app/utils/clerk";
+import React, { useState } from "react";
+import { Button, Input, YStack } from "@my/ui";
+import { useSignIn, useSignUp } from "app/utils/clerk";
 import { useRouter } from "solito/router";
 import { trpc } from "app/utils/trpc";
 import { ToastComp } from "@my/ui/src/components/ToastComp";
@@ -12,18 +11,22 @@ export function EmailVerificationScreen() {
   const { push } = useRouter();
   const [verificationCode, setVerificationCode] = useState("");
   const createUserMutation = trpc.user.create.useMutation();
-  const sku = "VQ00LP";
-  const { data: lessonPack } = trpc.user.lessonPackBySku.useQuery({ sku_number: sku });
+  const lessonPackName = "Пробный пакет";
   const updateUserLessonPack = trpc.user.updateUserLessonPack.useMutation();
-  
-  const { signUp, setActive } = useSignUp();
+  const { signUp } = useSignUp();
+  const { signIn } = useSignIn();
+
   if (!signUp) return null;
 
+  if (!signIn) {
+    // Handle the case where signIn is not available
+    return null;
+  }
+  
   // this is for toast message
   const [list, setList] = useState<any[]>([]);
 
   const showToast = (type) => {
-
     let toastProperties;
 
     switch (type) {
@@ -52,33 +55,41 @@ export function EmailVerificationScreen() {
       await signUp.attemptEmailAddressVerification({ code: verificationCode });
   
       if (signUp.status === "complete") {
+        const userEmailAddress = signUp.emailAddress!;
+
+        /* sign in the user */
+
+       /*  const signInResponse = await signIn.create({ identifier: userEmailAddress });
+          if (signInResponse.status !== "complete") {
+            console.error("Error signing in:", signInResponse.status);
+            return;
+          } */
         
         const userId = signUp.createdUserId!;
         console.log("Received userId:", userId);
-        const userEmailAddress = signUp.emailAddress!;
-  
-        /* add user id and email into our database */
-        createUserMutation.mutate({
-          id: userId,
-          email: userEmailAddress,
-          userName: userEmailAddress,
-        });
-  
-        /* add user lesson pack */
-  
-        const lessonPackName = lessonPack?.name; // Assuming the lesson pack name is stored in the 'name' property
-        console.log("Received lessonPackName:", lessonPackName);
-  
-        if (lessonPackName) {
-          await updateUserLessonPack.mutateAsync({ userId, lessonPackName })
-            .catch((error) => {
-              console.error("Error updating user lesson pack:", error);
-            });
-        }
-  
-        /* redirect to userpage */
         
-        push("/userpage");
+          /* add user id and email into our database */
+          createUserMutation.mutate({
+            id: userId,
+            email: userEmailAddress,
+            userName: userEmailAddress,
+          });
+  
+          /* add user lesson pack */
+    
+          console.log("Received lessonPackName:", lessonPackName);
+    
+          if (lessonPackName) {
+            await updateUserLessonPack.mutateAsync({ userId, lessonPackName })
+              .catch((error) => {
+                console.error("Error updating user lesson pack:", error);
+              });
+          }
+
+          /* redirect to userpage */
+
+          push("/userpage");
+        
       } else {
         showToast("error");
       }

@@ -5,5 +5,5 @@ import {
   useSignIn,
   useSignUp,
   useUser,
-} from "@clerk/clerk-expo";
+} from "@clerk/nextjs";
 export { SignedIn, SignedOut, useAuth, useSignIn, useSignUp, useUser };
