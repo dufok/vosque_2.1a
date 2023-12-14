@@ -17,6 +17,7 @@ packages/db/node_modules
 database
 
 packages/ui/node_modules
-packages/ui/tsconfig.tsbuildinfo
+//packages/ui/tsconfig.tsbuildinfo
 
 packages-lock.json
+packages/ui/tsconfig.tsbuildinfo

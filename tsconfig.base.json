@@ -9,7 +9,7 @@
       "esModuleInterop": true,
       "preserveSymlinks": true,
       "incremental": true,
-      "jsx": "react",
+      "jsx": "react-jsx",
       "module": "ESNext",
       "moduleResolution": "node",
       "noEmitOnError": false,
@@ -26,9 +26,9 @@
       "sourceMap": false,
       "strictNullChecks": true,
       "target": "es2019",
-      "types": ["node"],
+      "types": ["bun-types"],
       "resolveJsonModule": true,
-      "lib": ["es2020", "dom", "esnext"]
+      "lib": ["ES2020", "dom", "esnext"]
     },
     "exclude": ["_"],
     "typeAcquisition": {
