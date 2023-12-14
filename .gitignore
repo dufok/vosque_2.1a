@@ -11,6 +11,7 @@ apps/nextjs/.tamagui
 apps/nextjs/tamagui_old
 
 packages/db/seed/seed.json
+packages/db/seed/seed_backup.json
 
 packages/db/node_modules
 database
