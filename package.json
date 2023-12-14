@@ -43,6 +43,7 @@
     },
     "devDependencies": {
       "eslint": "^8.21.0",
+      "bun-types": "^1.0.17",
       "lerna-update-wizard": "^1.1.2",
       "prettier": "^2.7.1",
       "ts-node": "^10.9.1",
