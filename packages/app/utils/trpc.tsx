@@ -13,7 +13,7 @@ import React from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
 import { transformer } from '@my/api/transformer'
-import { useAuth } from '@clerk/clerk-expo'
+import { useAuth } from '@clerk/nextjs'
 
 /**
  * A set of typesafe hooks for consuming your API.
