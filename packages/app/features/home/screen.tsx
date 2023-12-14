@@ -36,9 +36,6 @@ export function HomeScreen() {
   const phasebookLinkProps = useLink({href: "/phrasebook"});
   const courseLinkProps = useLink({href: "/course"});
 
-  const imageSource = { uri: 'https://cdn.vosque.education/images/ylona-maria-rybka-W9h9Tq-JLTk-unsplash%201.png?raw'};
-  const imageSource1 = { uri: 'https://cdn.vosque.education/images/avatar.png?raw'};
-  
   const { data, isLoading, error } = trpc.entry.all.useQuery();
 
   useEffect(() => {
@@ -56,8 +53,8 @@ export function HomeScreen() {
   return (
     <YStack>
         <HeaderComp />
-        <Welcome imageSource={imageSource} userpageLinkProps={userpageLinkProps} />
-        <AboutAutor imageSource1={imageSource1}/>
+        <Welcome imageSource="/background.png" userpageLinkProps={userpageLinkProps} />
+        <AboutAutor imageSource1="/avatar.png"/>
         <AboutCourse courseLinkProps={courseLinkProps}/>
         <PhraseBooks phasebookLinkProps={phasebookLinkProps}/>
         <ReviewSection />

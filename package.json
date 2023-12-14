@@ -17,7 +17,7 @@
       "clean": "rm -rf node_modules",
       "clean:workspaces": "turbo clean",
       "build": "turbo build",
-      "upseed": "ts-node ./packages/db/seed/upseed.ts",
+      "upseed": "ts-node ./packages/db/seed/upseed",
       "generate": "cd packages/db && bun prisma:generate",
       "build:ui": "cd packages/ui && bun build",
       "studio": " cd packages/db && bun prisma:studio"

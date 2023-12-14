@@ -10,6 +10,8 @@ apps/nextjs/.next
 apps/nextjs/.tamagui
 apps/nextjs/tamagui_old
 
+packages/db/seed/seed.json
+
 packages/db/node_modules
 database
 
