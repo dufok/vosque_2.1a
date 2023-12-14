@@ -15,15 +15,15 @@ import { useLink } from "solito/link";
 import { HeaderComp } from "@my/ui/src/components/HeaderComp";
 import { SpinnerOver } from "@my/ui/src/components/SpinnerOver";
 import { trpc } from "app/utils/trpc";
-import { SignedIn, SignedOut, useAuth } from "app/utils/clerk";
+import { useSignIn, useSignUp, SignedIn, SignedOut, useUser, useAuth } from "app/utils/clerk";
 import { SubMenu } from '@my/ui/src/components/SubMenu';
-import { useSignUp } from "app/utils/clerk";
 import { useRouter } from "solito/router";
 
 import { ParagraphCustom } from '@my/ui/src/components/CustomText'
 import { SignUpSignInComponent } from '@my/ui/src/components/SignUpSignIn'
 
 import { Analytics } from '@vercel/analytics/react';
+import { User } from "@tamagui/lucide-icons";
 
 
 export function userpageScreen() {
@@ -84,7 +84,7 @@ function Welcome() {
   const { data: currentUser } = trpc.user.current.useQuery();
   const { data: userLessons, isLoading: isUserLessonsLoading } = trpc.user.userLessons.useQuery();
   const { data: userPacks, isLoading: isUserPacksLoading } = trpc.user.userLessonPacks.useQuery();
-  const filteredUserLessons =  Array.isArray(userLessons) ? userLessons.filter(lesson => lesson.name.toLowerCase().includes("урок")) : [];
+  const filteredUserLessons =  Array.isArray(userLessons) ? userLessons.filter(lesson => lesson?.name.toLowerCase().includes("урок")) : [];
   const lessonCount = filteredUserLessons.length;
 
   if ( isUserLessonsLoading || isUserPacksLoading) {
@@ -118,7 +118,7 @@ function Welcome() {
 function Lessons() {
 
   const { data: userLessons, isLoading: isUserLessonsLoading } = trpc.user.userLessons.useQuery();
-  const filteredUserLessons =  Array.isArray(userLessons) ? userLessons.filter(lesson => lesson.name.toLowerCase().includes("урок")) : [];
+  const filteredUserLessons =  Array.isArray(userLessons) ? userLessons.filter(lesson => lesson?.name.toLowerCase().includes("урок")) : [];
   const sortedUserLessons = filteredUserLessons.sort((a, b) => a.id - b.id);
   const lessonCount = filteredUserLessons.length;
   const courseLinkProps = useLink({href: "/course"});

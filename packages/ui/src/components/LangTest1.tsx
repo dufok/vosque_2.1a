@@ -125,8 +125,10 @@ export const LangTest1: React.FC<LangTestProps> = ({ tests, example, isOneColumn
     const handleInputBlur = () => {
       setInputFocus(false);
     
-      if (isCorrect !== null && answer !== "") {
-        showToast(!isCorrect && "error", unswer);
+      if (isCorrect === true) {
+        showToast("success", unswer);
+      } else if (isCorrect === false && answer !== "") {
+        showToast("error", unswer);
       }
     }; 
   

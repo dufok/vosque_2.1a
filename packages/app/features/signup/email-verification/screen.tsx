@@ -1,18 +1,14 @@
 /* this page is just one input for email verification */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Input, YStack } from "@my/ui";
-import { useSignIn, useSignUp } from "app/utils/clerk";
+import { useSignIn, useSignUp, useAuth, useUser } from "app/utils/clerk";
 import { useRouter } from "solito/router";
-import { trpc } from "app/utils/trpc";
 import { ToastComp } from "@my/ui/src/components/ToastComp";
 import { Banana } from '@tamagui/lucide-icons';
 
 export function EmailVerificationScreen() {
-  const { push } = useRouter();
+  const router = useRouter();
   const [verificationCode, setVerificationCode] = useState("");
-  const createUserMutation = trpc.user.create.useMutation();
-  const lessonPackName = "Пробный пакет";
-  const updateUserLessonPack = trpc.user.updateUserLessonPack.useMutation();
   const { signUp } = useSignUp();
   const { signIn } = useSignIn();
 
@@ -50,46 +46,14 @@ export function EmailVerificationScreen() {
   };
 
   const handleEmailVerificationOnPress = async () => {
+  
     try {
-      /* verify the email */
+      // Verify the email
       await signUp.attemptEmailAddressVerification({ code: verificationCode });
   
       if (signUp.status === "complete") {
-        const userEmailAddress = signUp.emailAddress!;
-
-        /* sign in the user */
-
-       /*  const signInResponse = await signIn.create({ identifier: userEmailAddress });
-          if (signInResponse.status !== "complete") {
-            console.error("Error signing in:", signInResponse.status);
-            return;
-          } */
-        
-        const userId = signUp.createdUserId!;
-        console.log("Received userId:", userId);
-        
-          /* add user id and email into our database */
-          createUserMutation.mutate({
-            id: userId,
-            email: userEmailAddress,
-            userName: userEmailAddress,
-          });
-  
-          /* add user lesson pack */
-    
-          console.log("Received lessonPackName:", lessonPackName);
-    
-          if (lessonPackName) {
-            await updateUserLessonPack.mutateAsync({ userId, lessonPackName })
-              .catch((error) => {
-                console.error("Error updating user lesson pack:", error);
-              });
-          }
-
-          /* redirect to userpage */
-
-          push("/userpage");
-        
+        // Redirect to user page
+        window.location.href = '/usercreate';
       } else {
         showToast("error");
       }
