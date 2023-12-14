@@ -1,6 +1,5 @@
 /* create user */
 //grab the images for the corresponding user
-import { Lesson } from "@my/db/index";
 import { router, publicProcedure, protectedProcedure } from "../trpc";
 import { z } from "zod";
 
