@@ -23,7 +23,7 @@
       "studio": " cd packages/db && bun prisma:studio"
     },
     "resolutions": {
-      "esbuild": "^0.15.6",
+      "esbuild": "^0.19.9",
       "@types/react": "17.0.21",
       "react": "18.2.0",
       "react-dom": "18.2.0",
