@@ -99,20 +99,30 @@ export const LangTest1: React.FC<LangTestProps> = ({ tests, example, isOneColumn
     const [answer, setAnswer] = useState("");
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [inputFocus, setInputFocus] = useState(false);
+
+    const normalizeString = (str) => {
+      return str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+        .replace(/[^a-zA-Z ]/g, "") // Remove non-alphabetic characters
+        .toLowerCase();
+    };
   
     useEffect(() => {
+      const normalizedAnswer = normalizeString(answer);
       if (answer !== "") {
-        setIsCorrect(unswer.includes(answer.toLowerCase()));
+        setIsCorrect(unswer.map(normalizeString).includes(normalizedAnswer));
       } else {
         setIsCorrect(null);
       }
     }, [answer, unswer]);
   
     const handleAnswerChange = (text, unswer) => {
+      const normalizedText = normalizeString(text);
       setAnswer(text);
-  
+    
       if (text !== "") {
-        setIsCorrect(unswer.includes(text.toLowerCase()));
+        setIsCorrect(unswer.map(normalizeString).includes(normalizedText));
       } else {
         setIsCorrect(null);
       }

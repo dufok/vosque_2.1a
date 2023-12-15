@@ -97,19 +97,29 @@ export const LangTest2: React.FC<LangTestProps> = ({ tests, example }) => {
                 const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
                 const [inputFocus, setInputFocus] = useState(false);
 
+                const normalizeString = (str) => {
+                  return str
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+                    .replace(/[^a-zA-Z ]/g, "") // Remove non-alphabetic characters
+                    .toLowerCase();
+                };
+              
                 useEffect(() => {
+                  const normalizedAnswer = normalizeString(answer);
                   if (answer !== "") {
-                    setIsCorrect(unswer.includes(answer.toLowerCase()));
+                    setIsCorrect(unswer.map(normalizeString).includes(normalizedAnswer));
                   } else {
                     setIsCorrect(null);
                   }
                 }, [answer, unswer]);
-
+              
                 const handleAnswerChange = (text, unswer) => {
+                  const normalizedText = normalizeString(text);
                   setAnswer(text);
-
+                
                   if (text !== "") {
-                    setIsCorrect(unswer.includes(text.toLowerCase()));
+                    setIsCorrect(unswer.map(normalizeString).includes(normalizedText));
                   } else {
                     setIsCorrect(null);
                   }
@@ -122,8 +132,10 @@ export const LangTest2: React.FC<LangTestProps> = ({ tests, example }) => {
                 const handleInputBlur = () => {
                   setInputFocus(false);
                 
-                  if (isCorrect !== null && answer !== "") {
-                    showToast(!isCorrect && "error", unswer);
+                  if (isCorrect === true) {
+                    showToast("success", unswer);
+                  } else if (isCorrect === false && answer !== "") {
+                    showToast("error", unswer);
                   }
                 }; 
 
