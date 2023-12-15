@@ -27,8 +27,6 @@ const headingVosqueFont = createFont({
 
 const bodyVosqueFont = createFont({
   family: 'VosqueStyleB',
-  sizeSize: (size) => Math.round(size * 1.1),
-  sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
   size: {
     1: 16,
     2: 14,
@@ -69,8 +67,6 @@ const bodyVosqueFont = createFont({
 
 const bodyBoldVosqueFont = createFont({
   family: 'VosqueStyleBBold',
-  sizeSize: (size) => Math.round(size * 1.1),
-  sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
   size: {
     1: 16,
     2: 14,
@@ -111,8 +107,6 @@ const bodyBoldVosqueFont = createFont({
 
 const hackVosqueFont = createFont({
   family: 'VosqueStyleHack',
-  sizeSize: (size) => Math.round(size * 1.1),
-  sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
   size: {
     1: 16,
     2: 14,
