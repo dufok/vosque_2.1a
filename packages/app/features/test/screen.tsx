@@ -1,39 +1,18 @@
 import {
   Paragraph,
   YStack,
-  XStack,
-  Spinner,
-  Button,
-  Input,
-  H3,
-  H4,
-  XGroup,
-  AlertDialog
  } from "@my/ui";
-import { trpc } from "app/utils/trpc";
-import { useLink } from "solito/link";
-import React,{useEffect, useState, useRef} from "react";
-import { Ticket, ChevronDown } from '@tamagui/lucide-icons';
-import { Sheet } from '@tamagui/sheet';
-import { SpinnerOver } from "@my/ui/src/components/SpinnerOver";
-
-import { SaleButton } from "@my/ui/src/components/SaleButton";
-
-
-
+ import {
+  H1
+ } from "tamagui";
 
 
 export function testScreen() {
 
-  const isLoadedTest = false;
-
-  if (isLoadedTest) {
-    return <SpinnerOver />;
-  }
-
   return (
     <YStack f={1} ai="center">
-      <SaleButton />
+      <H1>Test</H1>
+      <Paragraph> Это тест из my/ui </Paragraph>
     </YStack>
   );
 }
