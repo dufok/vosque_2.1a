@@ -1,4 +1,5 @@
 import "@tamagui/core/reset.css";
+import { ColorScheme } from "@tamagui/core";
 import "@tamagui/font-inter/css/400.css";
 import "@tamagui/font-inter/css/700.css";
 import '@my/ui/src/styles.css'; // import css
@@ -29,8 +30,12 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
 function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useRootTheme();
 
+  const handleThemeChange = (themeName: string) => {
+    setTheme(themeName as ColorScheme);
+  };
+
   return (
-    <NextThemeProvider onChangeTheme={setTheme}>
+    <NextThemeProvider onChangeTheme={handleThemeChange}>
       <Provider disableRootThemeClass defaultTheme={theme}>
         {children}
       </Provider>

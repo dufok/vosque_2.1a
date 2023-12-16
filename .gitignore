@@ -1,6 +1,7 @@
 .env
 .turbo
 .devcontainer
+.next/cache
 bun.lockb
 node_modules
 packages/app/node_modules
@@ -17,7 +18,5 @@ packages/db/node_modules
 database
 
 packages/ui/node_modules
-//packages/ui/tsconfig.tsbuildinfo
 
-packages-lock.json
 packages/ui/tsconfig.tsbuildinfo
