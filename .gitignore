@@ -20,4 +20,4 @@ database
 packages/ui/node_modules
 
 packages/ui/tsconfig.tsbuildinfo
-package-lock.json
+//package-lock.json
