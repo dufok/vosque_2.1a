@@ -3,7 +3,6 @@ import { shorthands } from '@tamagui/shorthands';
 import { createMedia } from '@tamagui/react-native-media-driver';
 import { themes } from './mytheme';
 import { tokens } from './themes/tokens';
-//import './styles.css';
 
 import { animations } from './animations'
 
