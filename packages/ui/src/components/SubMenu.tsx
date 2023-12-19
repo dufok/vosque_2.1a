@@ -1,4 +1,4 @@
-import { Paragraph, H3, YStack, XStack, Button } from "tamagui";
+import { Paragraph, H5, YStack, XStack, Button } from "tamagui";
 import React from "react";
 import { GithubIcon } from "./GithubIcon";
 import { InstagramIcon } from "./GithubIcon";
@@ -14,28 +14,28 @@ export function SubMenu({userpageLinkProps}) {
       <XStack f={1} w="100%" ai="center" jc="space-between">
         <XStack alignSelf="flex-start" p="$3" space="$3">
           <a href="https://github.com/dufok" target="_blank" rel="noopener noreferrer">
-            <GithubIcon width={30} color="$background" />
+            <GithubIcon width={30} color="#FFFDEF" />
           </a>
           <a href="https://instagram.com/vosque.education" target="_blank" rel="noopener noreferrer">
-            <InstagramIcon width={30} color="$background" />
+            <InstagramIcon width={30} color="#FFFDEF" />
           </a>
           <a href="https://t.me/vosque_help" target="_blank" rel="noopener noreferrer">
-            <TelegramIcon width={30} color="$background" />
+            <TelegramIcon width={30} color="#FFFDEF" />
           </a>
         </XStack>
-        <YStack mr="$4">
+        <YStack mr="$6">
           {/* <Button {...userpageLinkProps} bc="backgroundPress" bw='0'>
             <Paragraph >
               ВОЙТИ / ЗАПИСАТЬСЯ
             </Paragraph>
           </Button> */}
           <a href="https://t.me/vosque_help" target="_blank" rel="noopener noreferrer">
-            <H3
+            <H5
               className="h3-animation"
               color="$background"
             >
               ПОМОЩЬ ТУТ
-            </H3>
+            </H5>
           </a>
         </YStack>
       </XStack>
