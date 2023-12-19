@@ -12,7 +12,7 @@ import {
   Avatar,
   Image,
   Circle
-} from "@my/ui";
+} from '@my/ui';
 
 import { trpc } from "../../utils/trpc";
 
