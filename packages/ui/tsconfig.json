@@ -1,13 +1,10 @@
 {
   "extends": "../../tsconfig.base",
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "compilerOptions": {
     "composite": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "jsx": "react-native",
+    "jsx": "preserve",
   },
   "references": []
 }
