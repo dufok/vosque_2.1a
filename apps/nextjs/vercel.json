@@ -1,4 +1,4 @@
 {
-  "buildCommand": "cd ../.. && bun run generate && turbo build --filter=nextjs...",
-  "installCommand": "bun install"
+  "buildCommand": "cd ../.. && bun run generate && turbo build",
+  "installCommand": "bun install --no-save"
 }
