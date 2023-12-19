@@ -18,7 +18,7 @@
       "noUnusedLocals": false,
       "noUnusedParameters": false,
       "experimentalDecorators": true,
-      // "useUnknownInCatchVariables": false,
+      "useUnknownInCatchVariables": false,
       "preserveConstEnums": true,
       // DONT DO THIS so jsdoc will remain
       "removeComments": false,
