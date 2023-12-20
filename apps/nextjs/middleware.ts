@@ -10,11 +10,11 @@ export default authMiddleware({
     '/signin',
     '/phrasebook',
     '/course',
-    '/test',
     '/email-verification',
     '/signup/email-verification',
     '/usercreate',
-    '/api/trpc/(.*)'
+    '/api/trpc/(.*)',
+    '/(.*)'
   ],
   debug: false
 })
