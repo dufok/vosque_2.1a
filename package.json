@@ -36,10 +36,10 @@
         "@babel/runtime": "^7.18.9",
         "@tamagui/animations-css": "^1.39.5",
         "@tamagui/collection": "^1.39.5",
-        "@vercel/analytics": "^1.0.2",
+        "@types/uuid": "^9.0.7",
+        "@vercel/analytics": "^1.1.1",
         "dotenv": "^16.0.3",
-        "dotenv-cli": "^6.0.0",
-        "@types/uuid": "^9.0.7"
+        "dotenv-cli": "^6.0.0"
     },
     "devDependencies": {
         "bun-types": "^1.0.17",
