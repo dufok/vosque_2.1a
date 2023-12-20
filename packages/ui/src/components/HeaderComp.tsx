@@ -4,6 +4,7 @@ import { TextLink } from 'solito/link';
 import { useRouter } from 'next/router';
 import { useClerk } from '@clerk/clerk-react';
 import { PopAtention } from "./PopAtention";
+import { SaleButton } from './SaleButton';
 
 
 export function HeaderComp() {
@@ -33,6 +34,11 @@ export function HeaderComp() {
       >
         { !isSignedIn && isHomePage && (
            <PopAtention isOpen />
+          )
+        }
+        {
+          isSignedIn && isHomePage && (
+            <SaleButton isOpen />
           )
         }
         <XStack space="$4" $sm={{display: "none"}} >
