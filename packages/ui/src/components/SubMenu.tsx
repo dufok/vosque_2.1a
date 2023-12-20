@@ -23,7 +23,6 @@ export function SubMenu({userpageLinkProps}) {
             <TelegramIcon width={30} color="#FFFDEF" />
           </a>
         </XStack>
-        <Paragraph size="$5" color="$background">v2.1a</Paragraph>
         <YStack mr="$6">
           {/* <Button {...userpageLinkProps} bc="backgroundPress" bw='0'>
             <Paragraph >
@@ -39,6 +38,7 @@ export function SubMenu({userpageLinkProps}) {
             </H5>
           </a>
         </YStack>
+        <Paragraph size="$4" color="$background">v2.1a</Paragraph>
       </XStack>
     </YStack>
   )
