@@ -18,6 +18,7 @@ import { trpc } from "app/utils/trpc";
 import { useSignIn, useSignUp, SignedIn, SignedOut, useUser, useAuth } from "app/utils/clerk";
 import { SubMenu } from '@my/ui/src/components/SubMenu';
 import { useRouter } from "solito/router";
+import { SaleButton } from "@my/ui/src/components/SaleButton";
 
 import { ParagraphCustom } from '@my/ui/src/components/CustomText'
 import { SignUpSignInComponent } from '@my/ui/src/components/SignUpSignIn'
@@ -57,6 +58,7 @@ export function userpageScreen() {
         <HeaderComp />
         { isSignedIn && (
             <>
+              <SaleButton isOpen={false} />
               <Welcome  />
               <Login />
               <Lessons />
