@@ -28,7 +28,7 @@
       "target": "es2019",
       "types": ["node"],
       "resolveJsonModule": true,
-      "lib": ["ES2020", "dom", "esnext"]
+      "lib": ["ES2021", "dom", "esnext"]
     },
     "exclude": ["_"],
     "typeAcquisition": {
