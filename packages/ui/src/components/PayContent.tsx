@@ -259,12 +259,15 @@ function SheetCoupon({ price, discontedPrice, setDiscountedPrice, open, onOpenCh
   // Make sure the variables are defined
   if (sale) {
     const discountMap = {
-      [String(sale)]: 0.8,
+      [String(sale)]: 0.69,
       [String(friend)]: 0.01,
     };
 
     const discountFactor = discountMap[couponInput] || 1;
-    setDiscountedPrice(price * discountFactor);
+    const discountedPrice = price * discountFactor;
+    const roundedPrice = Math.round(discountedPrice);
+
+    setDiscountedPrice(roundedPrice);
     } else {
       // Handle the case where the variables are not defined
       console.warn("Coupon codes are not defined.");
