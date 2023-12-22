@@ -13,8 +13,7 @@ export default authMiddleware({
     '/email-verification',
     '/signup/email-verification',
     '/usercreate',
-    '/api/trpc/(.*)',
-    '/(.*)'
+    '/api/(.*)'
   ],
   debug: false
 })

@@ -7,6 +7,10 @@ const createOrder = async (req, res) => {
   const body = JSON.stringify(binancePayload);
   const payload = `${req.headers['binancepay-timestamp']}\n${req.headers['binancepay-nonce']}\n${body}\n`;
 
+  console.log('binancePayload', binancePayload)
+  console.log('body', body);
+  console.log('payload', payload);
+
   const signature = crypto
     .createHmac('sha512', process.env.BINANCE_SECRET_KEY)
     .update(payload)

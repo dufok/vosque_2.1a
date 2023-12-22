@@ -75,7 +75,8 @@ export function BinanceButton({ discontedPrice, sku, description, cource, text, 
     };
 
     const nonce = uuidv4().replace(/-/g, '').substring(0, 32); // Generate a unique nonce for each request
-    
+
+
     fetch('/api/binance', {
       method: 'POST',
       headers: {
