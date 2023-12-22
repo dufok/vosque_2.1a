@@ -93,7 +93,7 @@ export function BinanceButton({ discontedPrice, sku, description, cource, text, 
         setLinkUrl(data.data.universalUrl);
         console.log(data.data.qrcodeLink);
         console.log(data.data.universalUrl);
-        await createPayment.mutateAsync({ prepayId: data.data?.prepayId, merchantTradeNo: binancePayload.merchantTradeNo, code: data.code });
+        await createPayment.mutateAsync({ prepayId: data.data?.prepayId, merchantTradeNo: binancePayload.merchantTradeNo, code: data?.code });
         /* sendTelegramMessage(text); */
       } else {
         showToast("error");
