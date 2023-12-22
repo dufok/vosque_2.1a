@@ -219,7 +219,7 @@ export function PayContent({ name, description, sku, pricerub, priceusdt, coupon
                 ) : (
                   <>
                     <XStack space={10} fw="wrap">
-                    <BinanceButton 
+                    {/* <BinanceButton 
                         discontedPrice={discontedPrice}
                         sku={sku}
                         description={description}
@@ -227,7 +227,7 @@ export function PayContent({ name, description, sku, pricerub, priceusdt, coupon
                         text={text}
                         textError={textError}
                         createPayment={createPayment}
-                      />
+                      /> */}
                       <Button bc="$backgroundFocus" aria-label="Close" onPress={async () => {
                         await handleTransferCompletedUsdtSelf();
                       }}>Проверить Перевод</Button>

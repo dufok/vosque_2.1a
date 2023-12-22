@@ -176,9 +176,7 @@ export const userRouter = router({
     )
     .mutation(async({ctx, input}) => {
       const userId = ctx.user.id;
-      const { merchantTradeNo} = input;
-      const prepayId = input.prepayId || '0';
-      const code = input.code || '0';
+      const { prepayId, merchantTradeNo, code } = input;
 
       return ctx.prisma.payment.create({
         data: {
