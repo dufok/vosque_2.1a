@@ -12,7 +12,7 @@ export function SubMenu({userpageLinkProps}) {
   return(
     <YStack w="100%" pt="$2" pb="$2" backgroundColor="$backgroundFocus" >
       <XStack f={1} w="100%" ai="center" jc="space-between">
-        <XStack alignSelf="flex-start" p="$3" space="$3">
+        <XStack alignSelf="flex-start" pt="$3" paddingHorizontal="$3" space="$3">
           <a href="https://github.com/dufok" target="_blank" rel="noopener noreferrer">
             <GithubIcon width={30} color="#FFFDEF" />
           </a>
@@ -23,7 +23,6 @@ export function SubMenu({userpageLinkProps}) {
             <TelegramIcon width={30} color="#FFFDEF" />
           </a>
         </XStack>
-        <Paragraph size="$4" color="$background">v2.1a</Paragraph>
         <YStack mr="$6">
           {/* <Button {...userpageLinkProps} bc="backgroundPress" bw='0'>
             <Paragraph >
@@ -39,8 +38,10 @@ export function SubMenu({userpageLinkProps}) {
             </H5>
           </a>
         </YStack>
-        
       </XStack>
+      <YStack ai="center">
+        <Paragraph size="$4" color="$background">v2.1a</Paragraph>
+      </YStack>
     </YStack>
   )
 }
