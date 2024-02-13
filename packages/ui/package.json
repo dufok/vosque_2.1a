@@ -13,6 +13,7 @@
     "dist"
   ],
   "scripts": {
+    "dev": "tamagui-build --watch",
     "build": "tamagui-build",
     "watch": "tamagui-build --watch",
     "clean": "rm -rf dist && rm -rf types && rm -rf node_modules"
