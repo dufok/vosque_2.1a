@@ -15,7 +15,7 @@
         "web": "turbo run dev --filter nextjs",
         "clean": "rm -rf node_modules",
         "clean:workspaces": "turbo clean",
-        "build": "turbo build",
+        "build": "TURBO_LOG=debug turbo build",
         "upseed": "ts-node ./packages/db/seed/upseed",
         "generate": "cd packages/db && bun run prisma:generate",
         "build:ui": "cd packages/ui && bun run build",
