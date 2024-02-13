@@ -2,7 +2,7 @@
 .turbo
 .devcontainer
 .next/cache
-bun.lockb
+
 node_modules
 packages/app/node_modules
 packages/db/node_modules
@@ -20,7 +20,5 @@ database
 packages/ui/node_modules
 
 packages/ui/tsconfig.tsbuildinfo
-//package-lock.json
-package-lock.json
-package-lock.json
+
 .DS_Store
