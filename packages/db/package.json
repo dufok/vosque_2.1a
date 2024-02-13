@@ -6,11 +6,11 @@
   "types": "./index.ts",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "prisma:generate": "bun with-env prisma generate",
     "prisma:studio": "bun with-env prisma studio",
     "prisma:migrate": "bun with-env prisma migrate",
     "prisma:migrate:dev": "bun with-env prisma migrate dev",
-    "build": "bun with-env prisma generate",
     "clean": "rm -rf node_modules",
     "with-env": "dotenv -e ../../.env --",
     "dev": "bun with-env prisma studio --port 5556",
