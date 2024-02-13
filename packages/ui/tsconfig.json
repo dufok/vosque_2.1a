@@ -1,10 +1,4 @@
 {
-  "extends": "../../tsconfig.base",
-  "include": ["src"],
-  "compilerOptions": {
-    "composite": true,
-    "esModuleInterop": true,
-    "jsx": "preserve",
-  },
-  "references": []
+  "extends": "../../tsconfig.json",
+  "include": ["index.ts"]
 }
