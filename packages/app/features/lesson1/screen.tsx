@@ -116,7 +116,7 @@ function Lesson1SignIn({ userLessons }) {
           <>
             <SquareText text={content?.squareText1}/>
             <DescriptionBlock description={content?.descriptionBlock1}/>
-            <ButtonSquereSheet letters={letters} />
+            {/* <ButtonSquereSheet letters={letters} /> */}
 
             <SquareText text={content?.squareText2}/>
             <TextExampleBlock textExamples={textExampleBlock1}/>
