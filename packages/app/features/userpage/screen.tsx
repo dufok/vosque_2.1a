@@ -58,7 +58,7 @@ export function userpageScreen() {
         <HeaderComp />
         { isSignedIn && (
             <>
-              <SaleButton isOpen={false} />
+              {/* <SaleButton isOpen={false} /> */}
               <Welcome  />
               <Login />
               <Lessons />

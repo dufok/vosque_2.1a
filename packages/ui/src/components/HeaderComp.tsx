@@ -36,11 +36,11 @@ export function HeaderComp() {
            <PopAtention isOpen />
           )
         }
-        {
+        {/* {
           isSignedIn && isHomePage && (
             <SaleButton isOpen />
           )
-        }
+        } */}
         <XStack space="$4" $sm={{display: "none"}} >
           <TextLink prefetch={false} href="/phrasebook">
             <Paragraph
