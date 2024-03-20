@@ -10,4 +10,4 @@
       }
     },
     "extends": "./tsconfig.base.json"
-  }  
+  }
