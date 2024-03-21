@@ -1,4 +1,4 @@
-import { createTamagui, createFont, createTokens } from 'tamagui';
+import { createTamagui, createFont } from 'tamagui';
 import { shorthands } from '@tamagui/shorthands';
 import { createMedia } from '@tamagui/react-native-media-driver';
 import { themes } from './mytheme';

@@ -3,7 +3,7 @@ import {
   YStack,
   XStack,
   Button
- } from "@my/ui";
+ } from '@my/ui';
 import { trpc } from "app/utils/trpc";
 import { useLink } from "solito/link";
 import React,{ useEffect, useState } from "react";
