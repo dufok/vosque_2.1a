@@ -14,7 +14,7 @@ packages/db/seed/seed.json
 packages/db/seed/seed_backup.json
 packages/ui/tsconfig.tsbuildinfo
 
-apps/nextjs/.next
-apps/nextjs/.tamagui
+**/.next/*
+**/.tamagui/*
 apps/nextjs/tamagui_old
 .vercel
