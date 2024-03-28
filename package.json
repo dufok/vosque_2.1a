@@ -18,7 +18,7 @@
         "build": "TURBO_LOG=debug turbo build",
         "upseed": "ts-node ./packages/db/seed/upseed",
         "generate": "cd packages/db && bun run prisma:generate",
-        "build:ui": "cd packages/ui && bun run build:ui",
+        "build-ui": "turbo build-ui",
         "studio": " cd packages/db && bun run prisma:studio"
     },
     "resolutions": {

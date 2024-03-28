@@ -25,11 +25,11 @@
         "inputs": ["prisma/schema.prisma"],
         "cache": false
       },
-      "build:ui":{
+      "build-ui":{
         "cache": false
       },
       "build": {
-        "dependsOn": ["^build:ui", "^db-generate"],
+        "dependsOn": ["^build-ui", "^db-generate"],
         "outputs": [".next/**"]
       },
       "lint": {
