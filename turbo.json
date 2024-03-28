@@ -29,7 +29,7 @@
         "cache": false
       },
       "build": {
-        "dependsOn": ["^build-ui", "^db-generate"],
+        "dependsOn": ["build-ui", "^db-generate"],
         "outputs": [".next/**"]
       },
       "lint": {
