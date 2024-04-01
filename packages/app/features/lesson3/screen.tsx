@@ -237,7 +237,7 @@ function Lesson3SignIn({ userLessons }) {
 
           <HeaderBlock header={content2?.headerBlock6} />
           <DescriptionBlock description={content2?.descriptionBlock10} />
-          <DopDialog contents={content2?.dopDialog1 || {}}/>
+          {/* <DopDialog contents={content2?.dopDialog1 || {}}/> */}
 
           {/* Домашнее Задание */}
 

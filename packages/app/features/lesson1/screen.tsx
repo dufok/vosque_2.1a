@@ -116,7 +116,7 @@ function Lesson1SignIn({ userLessons }) {
           <>
             <SquareText text={content?.squareText1}/>
             <DescriptionBlock description={content?.descriptionBlock1}/>
-            {/* <ButtonSquereSheet letters={letters} /> */}
+            <ButtonSquereSheet letters={letters} />
 
             <SquareText text={content?.squareText2}/>
             <TextExampleBlock textExamples={textExampleBlock1}/>
@@ -218,7 +218,7 @@ function Lesson1SignIn({ userLessons }) {
     letters: Letter[];
   }
 
-  const ButtonSquereSheet: React.FC<ButtonSquereSheetProps> = ({ letters }) => {
+  const ButtonSquereSheet: React.FC<ButtonSquereSheetProps> = React.memo(({ letters }) => {
     return (
       <YStack mt="$4" ai="center" f={1} maw={800}>
         <XStack jc="center" m="$4" fw='wrap' ai="center">
@@ -240,4 +240,4 @@ function Lesson1SignIn({ userLessons }) {
         </XStack>
       </YStack>
     )
-  }
+  });
