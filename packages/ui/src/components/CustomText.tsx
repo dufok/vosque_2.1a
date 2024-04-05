@@ -52,7 +52,7 @@ function parseAndRenderText(text, color) {
         } else if (isItalic) {
           return <Paragraph key={index} col={color} fontStyle="italic" >{part}</Paragraph>;
         } else {
-          return <Paragraph key={index} col={color}>{part}</Paragraph>;
+          return <Paragraph key={index} col={color} >{part}</Paragraph>;
         }
     }
   });

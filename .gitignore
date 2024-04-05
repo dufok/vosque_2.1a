@@ -18,3 +18,4 @@ packages/ui/tsconfig.tsbuildinfo
 **/.tamagui/*
 apps/nextjs/tamagui_old
 .vercel
+.vscode/settings.json

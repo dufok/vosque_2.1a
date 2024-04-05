@@ -1,7 +1,6 @@
 import {
   Paragraph,
   YStack,
-  XStack,
   Button
  } from '@my/ui';
 import { trpc } from "app/utils/trpc";
@@ -13,7 +12,7 @@ import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons';
 import { HeaderComp } from "@my/ui/src/components/HeaderComp";
 import { SpinnerOver } from "@my/ui/src/components/SpinnerOver";
 
-import { ButtonWithSheet } from '@my/ui/src/components/ButtonWithSheet';
+import { ButtonSquareSheetCombined } from '@my/ui/src/components/ButtonSquareSheetCombined';
 import { ContentLesson1 } from './type_Lesson1';
 import { VideoPlayer } from '@my/ui/src/components/VideoPlayer';
 import { SquareText } from '@my/ui/src/components/SquareText';
@@ -116,7 +115,7 @@ function Lesson1SignIn({ userLessons }) {
           <>
             <SquareText text={content?.squareText1}/>
             <DescriptionBlock description={content?.descriptionBlock1}/>
-            <ButtonSquereSheet letters={letters} />
+            <ButtonSquareSheetCombined letters={letters} />
 
             <SquareText text={content?.squareText2}/>
             <TextExampleBlock textExamples={textExampleBlock1}/>
@@ -198,46 +197,3 @@ function Lesson1SignIn({ userLessons }) {
     </YStack>
   );
 }
-
-  //ButtonSquereSheet block
-
-  export type Letter = {
-    name: string;
-    description: string;
-    Colum1_1: string;
-    Colum2_1: string;
-    Colum3_1: string;
-    Colum4_1: string;
-    Colum1_2: string;
-    Colum2_2: string;
-    Colum3_2: string;
-    Colum4_2: string;
-  };
-
-  interface ButtonSquereSheetProps {
-    letters: Letter[];
-  }
-
-  const ButtonSquereSheet: React.FC<ButtonSquereSheetProps> = React.memo(({ letters }) => {
-    return (
-      <YStack mt="$4" ai="center" f={1} maw={800}>
-        <XStack jc="center" m="$4" fw='wrap' ai="center">
-          {letters.map(({name, description, Colum1_1, Colum2_1, Colum3_1, Colum4_1, Colum1_2, Colum2_2, Colum3_2, Colum4_2}) => (
-           <ButtonWithSheet
-           key={name}
-           Title={name}
-           Description={description}
-           Colum1_1={Colum1_1}
-           Colum2_1={Colum2_1}
-           Colum3_1={Colum3_1}
-           Colum4_1={Colum4_1}
-           Colum1_2={Colum1_2}
-           Colum2_2={Colum2_2}
-           Colum3_2={Colum3_2}
-           Colum4_2={Colum4_2}
-         />
-          ))}
-        </XStack>
-      </YStack>
-    )
-  });
