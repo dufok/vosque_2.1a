@@ -161,7 +161,6 @@ function Lesson3SignIn({ userLessons }) {
         <HeaderBlock header={content?.header3}/>
         <SquareText text={content?.squareText4}/>
         <LangTest4 example={example4_1} tests={tests4_1} />
-
         {/* Часть 2 */}
 
         <WelcomeBlock

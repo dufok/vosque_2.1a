@@ -99,15 +99,6 @@ export const LangTest4: React.FC<LangTestProps> = ({ tests, example, isOneColumn
                 </Button>
               </Dialog.Trigger>
 
-              <Adapt when="sm" platform="touch">
-                <Sheet zIndex={200000} modal dismissOnSnapToBottom>
-                  <Sheet.Frame padding="$4" space>
-                    <Adapt.Contents />
-                  </Sheet.Frame>
-                  <Sheet.Overlay o={0}/>
-                </Sheet>
-              </Adapt>
-
               <Dialog.Portal>
                 <Dialog.Overlay
                   key="overlay"
