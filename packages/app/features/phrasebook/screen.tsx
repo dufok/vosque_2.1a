@@ -14,19 +14,46 @@ import { Banana } from '@tamagui/lucide-icons'
 import { HeaderComp } from '@my/ui/src/components/HeaderComp';
 import { ToastComp } from "@my/ui/src/components/ToastComp";
 import { SubMenu} from '@my/ui/src/components/SubMenu';
+import { useRouter } from "next/router";
+
+import { PayContent } from "@my/ui/src/components/PayContent";
 
 
 export function phrasebookScreen() {
   const userpageLinkProps = useLink({href: "/userpage"});
   const phasebookLinkProps = useLink({href: "/phrasebook"});
+  const router = useRouter();
+  const routerQuery = router.query;
+  const coupon = routerQuery.coupon ? routerQuery.coupon.toString() : "undefined";
+  const [payContentProps, setPayContentProps] = useState(null);
+  const showPayContent = (props) => {
+    setPayContentProps(props);
+  }
  
 
   return (
     <YStack f={1} jc="space-between">
       <YStack>
+        <YStack
+          ai="center"
+          //@ts-ignore
+          pos="fixed"
+          zi={40}
+          >
+        {payContentProps && (
+          <PayContent
+            name={payContentProps.name}
+            description={payContentProps.description}
+            sku={payContentProps.sku}
+            pricerub={payContentProps.pricerub}
+            priceusdt={payContentProps.priceusdt}
+            coupon={coupon}
+          />
+        )}
+        </YStack>
         <HeaderComp />
         <WelcomeBlock />
-        <ContentBlock />
+        <ContentBlock showPayContent={showPayContent} />
       </YStack>
       <SubMenu userpageLinkProps={userpageLinkProps}/>
     </YStack>
@@ -44,7 +71,7 @@ export function WelcomeBlock(){
   )
 }
 
-export function ContentBlock(){
+export function ContentBlock({showPayContent}){
   // This is for Toast
   const [list, setList] = useState<any[]>([]);
   const showToast = (type) => {
@@ -66,6 +93,7 @@ export function ContentBlock(){
     }
     setList([...list, toastProperties]);
   };
+
   return(
     <YStack ai="center">
       <ToastComp 
@@ -77,7 +105,16 @@ export function ContentBlock(){
       <YStack marginVertical="$10" w='100%' maw={800}>
         <H3 tt="uppercase" ta="center"> купить</H3>
         <XStack fw="wrap" jc="center">
-          <Button w={200} h={50} m="$5" bc="$backgroundPress" onPress={() => {showToast("no_info")}}>
+          <Button w={200} h={50} m="$5" bc="$backgroundPress"
+            onPress={() => 
+              showPayContent({
+                name: "tinder",
+                description: "Разговорник по знакомствам",
+                sku: "VQ01PH",
+                pricerub: "10000",
+                priceusdt: "100",
+              })
+            }>
             <H4 tt="uppercase"  col="$background">tinder</H4>
           </Button>
           <Button w={200} h={50} m="$5" bc="$backgroundPress" onPress={() => {showToast("no_info")}}>
