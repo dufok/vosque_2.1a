@@ -149,7 +149,7 @@ export function PayContent({ name, description, sku, pricerub, priceusdt, coupon
 
   return (
     <>
-    { (isLoadingOverall || showSpinner) && <SpinnerOver /> }
+   {/*  { (isLoadingOverall || showSpinner) && <SpinnerOver /> } */}
     <ToastComp 
     toastList={list}
     position="bottom-center"

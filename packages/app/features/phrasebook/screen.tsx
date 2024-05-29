@@ -29,29 +29,42 @@ export function phrasebookScreen() {
   const showPayContent = (props) => {
     setPayContentProps(props);
   }
+
+  const handleBackgroundClick = () => {
+    setPayContentProps(null);
+  }
  
 
   return (
     <YStack f={1} jc="space-between">
       <YStack>
-        <YStack
+        <HeaderComp />
+        {payContentProps && (
+          <YStack
           ai="center"
+          justifyContent="space-around"
           //@ts-ignore
           pos="fixed"
           zi={40}
+          w="100%"
+          h="100%"
+          backgroundColor="rgba(0, 0, 0, 0.5)"
+          onPress={handleBackgroundClick}
           >
-        {payContentProps && (
-          <PayContent
-            name={payContentProps.name}
-            description={payContentProps.description}
-            sku={payContentProps.sku}
-            pricerub={payContentProps.pricerub}
-            priceusdt={payContentProps.priceusdt}
-            coupon={coupon}
-          />
+            <YStack
+              onClick={(e) => e.stopPropagation()}
+              >
+              <PayContent
+                name={payContentProps.name}
+                description={payContentProps.description}
+                sku={payContentProps.sku}
+                pricerub={payContentProps.pricerub}
+                priceusdt={payContentProps.priceusdt}
+                coupon={coupon}
+              />
+            </YStack>
+          </YStack>
         )}
-        </YStack>
-        <HeaderComp />
         <WelcomeBlock />
         <ContentBlock showPayContent={showPayContent} />
       </YStack>
@@ -117,19 +130,60 @@ export function ContentBlock({showPayContent}){
             }>
             <H4 tt="uppercase"  col="$background">tinder</H4>
           </Button>
-          <Button w={200} h={50} m="$5" bc="$backgroundPress" onPress={() => {showToast("no_info")}}>
+          <Button w={200} h={50} m="$5" bc="$backgroundPress"
+            onPress={() => 
+              showPayContent({
+                name: "grinder",
+                description: "Разговорник по знакомствам",
+                sku: "VQ02PH",
+                pricerub: "10000",
+                priceusdt: "100",
+              })
+            }>
             <H4 tt="uppercase"  col="$background">grinder</H4>
           </Button>
-          <Button w={200} h={50} m="$5" bc="$backgroundPress" onPress={() => {showToast("no_info")}}>
+          <Button w={200} h={50} m="$5" bc="$backgroundPress"
+            onPress={() => 
+            showPayContent({
+              name: "restaurante",
+              description: "Разговорник в ресторане",
+              sku: "VQ03PH",
+              pricerub: "10000",
+              priceusdt: "100",
+            })}>
             <H4 tt="uppercase"  col="$background">restaurante</H4>
           </Button>
-          <Button w={200} h={50} m="$5" bc="$backgroundPress" onPress={() => {showToast("no_info")}}>
+          <Button w={200} h={50} m="$5" bc="$backgroundPress"
+            onPress={() => 
+            showPayContent({
+              name: "migraciones",
+              description: "Разговорник в миграционной службе",
+              sku: "VQ04PH",
+              pricerub: "10000",
+              priceusdt: "100",
+            })}>
             <H4 tt="uppercase"  col="$background">migraciones</H4>
           </Button>
-          <Button w={200} h={50} m="$5" bc="$backgroundPress" onPress={() => {showToast("no_info")}}>
-            <H4 tt="uppercase"  col="$background">palabras <br/> malas</H4>
+          <Button w={200} h={50} m="$5" bc="$backgroundPress" 
+            onPress={() => 
+              showPayContent({
+                name: "palabras malas",
+                description: "Крылатые фразы и выражения",
+                sku: "VQ05PH",
+                pricerub: "10000",
+                priceusdt: "100",
+              })}>
+            <H4 tt="uppercase"  col="$background">malas</H4>
           </Button>
-          <Button w={200} h={50} m="$5" bc="$backgroundPress" onPress={() => {showToast("no_info")}}>
+          <Button w={200} h={50} m="$5" bc="$backgroundPress"
+            onPress={() => 
+            showPayContent({
+              name: "otros",
+              description: "Разговорник по разработке программного обеспечения",
+              sku: "VQ06PH",
+              pricerub: "10000",
+              priceusdt: "100",
+            })}>
             <H4 tt="uppercase"  col="$background">otros</H4>
           </Button>
         </XStack>

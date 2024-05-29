@@ -40,7 +40,7 @@ export function SubMenu({userpageLinkProps}) {
         </YStack>
       </XStack>
       <YStack ai="center">
-        <Paragraph size="$4" color="$background">v2.1a</Paragraph>
+        <Paragraph size="$4" color="$background">v2.2a</Paragraph>
       </YStack>
     </YStack>
   )
